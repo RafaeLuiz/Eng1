@@ -1,0 +1,14 @@
+@startuml
+
+
+
+/'Caso de uso do sistema universidade '/
+left to right direction
+actor Aluno as a
+package Profissional {
+actor Professor as p
+actor Cordenador as c   
+actor Seguranca as s  
+actor Diretor as d 
+}
+@enduml

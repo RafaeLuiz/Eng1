@@ -1,0 +1,16 @@
+@startuml
+
+
+
+/'Caso de uso do sistema restaurante '/
+left to right direction
+actor Cliente as c
+package Profissional {
+actor Garcom as g
+actor Cozinheiro as co   
+actor Caixa as ca  
+actor Atendente as a 
+actor "Supervisor de Alimentos" as sa
+actor Chefe as ch
+}
+@enduml
