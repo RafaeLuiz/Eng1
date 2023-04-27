@@ -2,13 +2,51 @@
 
 
 
-/'Caso de uso do sistema universidade '/
+/'Caso de uso do sistema restaurante '/
 left to right direction
 actor Aluno as a
-package Profissional {
+actor Funcionario as fu
 actor Professor as p
-actor Cordenador as c   
-actor Seguranca as s  
-actor Diretor as d 
-}
+actor Cordenador as c    
+actor Reitor as r
+actor Vigilante as v
+actor Financeiro as f
+actor Faxineiro as fa
+
+usecase "Ministrar Aula" as UC1
+usecase "Assitir Aula" as UC2
+usecase "Orientar Matricula" as UC3
+usecase "Administrar curso" as UC4
+usecase "Administrar Universidade" as UC5
+usecase "Representar Universidade" as UC6
+usecase "Prestar Serviço" as UC7
+usecase "Atender Universidade" as UC8
+usecase "Gerenciar Receitas e Despesas" as UC9
+usecase "Pagar" as UC10
+usecase "Receber" as UC11
+(UC2) .> (UC1) : <<include>>
+
+fu -- UC7
+fu -- UC11
+fu <|-- fa
+fu <|-- v
+fu <|-- f
+f -- UC9
+UC9 <|-- UC10
+UC9 <|-- UC11
+a -- UC2
+a -- UC10
+p -- UC1
+p -- UC11
+c -- UC3
+c -- UC4
+r -- UC5
+r -- UC6
+UC7 <|-- UC8 
+p <|-- r
+p <|-- c
+
 @enduml
+
+
+
