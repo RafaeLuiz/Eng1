@@ -1,0 +1,70 @@
+@startuml
+
+
+/'Caso de uso do sistema restaurante '/
+left to right direction
+actor "Gerente de Compras" as GC
+actor "Supervisor de Estoque" as SE
+actor "Coordenador de Produção" as CP    
+actor Qualidade as Q
+actor Vendas as V
+
+rectangle "Casos de Uso"{
+usecase "Adquirir Ingredientes e Materiais" as UC1
+usecase "Garantir a Qualidade dos Produtos" as UC2
+usecase "Negociar o Melhor Preço" as UC3
+
+usecase "Gerenciar o Armazenamento dos Materiais" as UC4
+usecase "Conferir e Verificar os Pedidos" as UC5
+
+usecase "Coordena a Utilização dos ingredientes" as UC6
+usecase "Garantir que os Itens Sejam Entregues" as UC7
+usecase "Otimizar a Utilização dos Materiais" as UC8
+
+usecase "Monitora Processo de Produção" as UC9
+usecase "Verifica os Ingredientes Dentro dos Padroes" as UC10
+usecase "Conduzir inspeções" as UC11
+
+usecase "Distribuição dos Produtos" as UC12
+usecase "Manter Registros das Vendas" as UC13
+usecase "Fornecer informações sobre Demanda" as UC14
+
+usecase "Receber Comissão" as UC15
+usecase "Cumprir Cotas" as UC16
+usecase "Vender Produtos" as UC17
+}
+
+(UC15) .> (UC17) : <<include>>
+
+GC -- UC1
+GC -- UC2
+GC -- UC3
+
+SE -- UC4
+SE -- UC5
+
+CP -- UC6
+CP -- UC7
+CP -- UC8
+
+Q -- UC9
+Q -- UC10
+Q -- UC11
+
+V -- UC12
+V -- UC13
+V -- UC14
+V -- UC15
+V -- UC16
+V -- UC17
+
+SE <|-- GC
+
+
+
+
+
+@enduml
+
+
+
