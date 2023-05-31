@@ -1,0 +1,22 @@
+@startuml
+
+|Main|
+start
+
+:Funcionário recebe materiais do fornecedor;
+:Verificar se a entrega está de acordo com o pedido;
+
+if (Entrega correta?) then (sim)
+  :Registrar recebimento no sistema;
+  :Atualizar estoque com os materiais recebidos;
+  :Gerar nota de recebimento;
+  :Notificar o setor responsável sobre a disponibilidade dos materiais;
+else (não)
+  :Registrar inconsistência no sistema;
+  :Notificar o fornecedor sobre a entrega incorreta;
+endif
+
+|Main|
+stop
+
+@enduml

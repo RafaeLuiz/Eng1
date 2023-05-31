@@ -1,0 +1,30 @@
+@startuml
+
+|Main|
+start
+
+:Cliente seleciona produtos;
+:Adicionar produtos ao carrinho;
+
+while (Mais produtos no carrinho?) is (sim)
+  :Adicionar produtos ao carrinho;
+endwhile (não)
+
+:Revisar e confirmar pedido;
+
+if (Pedido confirmado?) then (sim)
+  :Processar pagamento;
+  if (Pagamento aprovado?) then (sim)
+    :Gerar número do pedido;
+    :Enviar confirmação de pedido ao cliente;
+  else (não)
+    :Exibir mensagem de pagamento não aprovado;
+  endif
+else (não)
+  :Cancelar pedido;
+endif
+
+|Main|
+stop
+
+@enduml
