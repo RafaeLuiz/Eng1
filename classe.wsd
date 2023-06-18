@@ -1,0 +1,96 @@
+@startuml
+
+class GerenteDeCompras {
+  - nome: String
+  - departamento: String
+  - funcao: String
+}
+
+class Compra{
+  - valor: float  
+  - quantidade: integer
+  - endereço: String
+}
+
+class Venda{
+  - valor: float  
+  - quantidade: integer
+  - endereço: String
+}
+
+class SupervisoraDeEstoque {
+  - nome: String
+  - departamento: String
+  - funcao: String
+}
+
+class CoordenadorDeProducao {
+  - nome: String
+  - departamento: String
+  - funcao: String
+}
+
+class AnalistaDeQualidade {
+  - nome: String
+  - departamento: String
+  - funcao: String
+}
+
+class ResponsavelVendasDistribuicao {
+  - nome: String
+  - departamento: String
+  - funcao: String
+}
+
+class Fornecedor {
+  - nome: String
+  - endereco: String
+  - telefone: String
+}
+
+class Material {
+  - nome: String
+  - marca: String
+  - codigo: String
+}
+
+class Ingrediente {
+  - nome: String
+  - marca: String
+  - codigo: String
+}
+
+class Produto {
+  - nome: String
+  - preco: double
+  - disponibilidade: boolean
+}
+
+class Producao {
+
+}
+
+GerenteDeCompras "1..*" -> Compra :Realizar Compra
+Fornecedor "1..*" --> Venda :Realizar Venda
+
+Compra "1..*" --> Material :Pode ter
+Compra "1..*" --> Ingrediente :Pode ter
+
+Material <-- "1..*" SupervisoraDeEstoque :Gerencia
+Ingrediente <-- "1..*" SupervisoraDeEstoque :Gerencia
+
+Material <-- "1..*" CoordenadorDeProducao :Coordena a utilização
+Ingrediente <-- "1..*" CoordenadorDeProducao :Coordena a utilização
+Producao <-- "1..*" CoordenadorDeProducao :Gerencia
+
+Material <-- "1..*" AnalistaDeQualidade :Verifica
+Ingrediente <-- "1..*" AnalistaDeQualidade :Verifica
+
+Venda <-- "1..*" ResponsavelVendasDistribuicao :Realizar Venda
+
+Venda "1..*" -> Produto :Tem
+
+
+
+
+@enduml
